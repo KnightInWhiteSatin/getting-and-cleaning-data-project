@@ -59,5 +59,5 @@ names(dat) = gsub("Mag","Magnitude",names(dat))
 
 ## 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-tidy = ddply(dat, c(Subject.ID,Activity), numcolwise(mean))
-write.table(tidy, file = "./tidyData.txt")
+tidy = ddply(dat, c("Subject.ID","Activity"), numcolwise(mean))
+write.table(tidy, file = "./tidyData.txt", row.name = F)
